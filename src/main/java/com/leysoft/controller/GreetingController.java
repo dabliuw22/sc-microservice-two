@@ -1,3 +1,4 @@
+
 package com.leysoft.controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,13 +10,16 @@ import com.leysoft.dto.GreetingRequest;
 import com.leysoft.dto.GreetingResponse;
 
 @RestController
-@RequestMapping(value = {"/greeting"})
+@RequestMapping(
+        value = {
+            "/greeting"
+        })
 public class GreetingController {
-	
-	@PostMapping
-	public GreetingResponse greeting(@RequestBody GreetingRequest request) {
-		GreetingResponse response = new GreetingResponse();
-		response.setMessage("Hello " + request.getName());
-		return response;
-	}
+
+    @PostMapping
+    public GreetingResponse greeting(@RequestBody GreetingRequest request) {
+        GreetingResponse response = new GreetingResponse();
+        response.setMessage("Hello " + request.getName());
+        return response;
+    }
 }
