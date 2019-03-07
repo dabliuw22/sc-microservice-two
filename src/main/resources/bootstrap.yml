@@ -6,3 +6,21 @@ spring:
       discovery:
         enabled: true
         serviceId: config-server
+    
+    stream:
+      bindings:
+        input:
+          destination: message.e
+        custom-message-input:
+          destination: custom-message.e
+          group: custom-message.q
+      rabbit:
+        bindings:
+          input:
+            consumer:
+              exchange-type: direct
+              binding-routing-key: routing
+          custom-message-input:
+            consumer:
+              exchange-type: topic
+              binding-routing-key: my-routing#
